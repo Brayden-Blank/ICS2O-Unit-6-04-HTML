@@ -1,53 +1,31 @@
 // Copyright (c) 2022 Brayden Blank All rights reserved
 //
-// Created by: Brayden Blank
-// Created on: Apr 2022
+// Created by: Mr. Coxall
+// Created on: June 2022
 // This file contains the JS functions for index.html
 
-"use strict";
+"use strict"
 
-/**
- * Check service worker.
- */
 if (navigator.serviceWorker) {
-  navigator.serviceWorker.register("/ICS2O-Unit-5-06-HTML/sw.js", {
-    scope: "/ICS2O-Unit-5-06-HTML/",
-  });
+  navigator.serviceWorker.register("/ICS2O-Unit-6-04-HTML/sw.js", {
+    scope: "/ICS2O-Unit-6-04-HTML/",
+  })
 }
 
-const randomNumber = Math.floor(Math.random() * 6) + 1;
+window.onload = function() {
+  // this calculates volume of a sphere
 
-/**
- * This function compares slider with random number.
- */
-function guessClicked() {
-  
-  const counter1 = parseInt(document.getElementById("integer1").value)
-	const counter2 = parseInt(document.getElementById("integer2").value)
-  var addedNumber = 0
-  var result = 0
+  const params = new URLSearchParams(document.location.search)
 
-  if (counter1 > 0 && counter2 > 0) {
-    while (addedNumber < counter2) {
-      addedNumber = addedNumber + 1;
-      result = result + counter1;
-    }
-  } else if (counter1 < 0 && counter2 < 0) {
-    while (addedNumber > counter2) {
-      addedNumber = addedNumber - 1;
-      result = result - counter1;
-    }
-  } else if (counter1 > 0 && counter2 < 0) {
-    while (addedNumber > counter2) {
-      addedNumber = addedNumber - 1;
-      result = result - counter1;
-    }
-  } else {
-    while (addedNumber < counter2) {
-      addedNumber = addedNumber + 1;
-      result = result + counter1;
-    }
-  }
+  // input
+  const circleRadius = params.get('r')
+  console.log(circleRadius)
 
-document.getElementById('answer').innerHTML = counter1 + " x " + addedNumber + " = " + result;
+  // process
+  const volume = (4 / 3) * Math.Pi * (circleRadius**3)
+  const dimensions = "<ul>\n<li>Radius = " + circleRadius + "</li>\n<ul>"
+
+  // output
+  document.getElementById('dimensions').innerHTML = dimensions
+  document.getElementById('volume-of-sphere').innerHTML = 'Volume is: ' + volume + ' cm³!' 
 }
