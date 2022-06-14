@@ -1,4 +1,4 @@
-# ICS2O-Unit-5-01-HTML
+# ICS2O-Unit-6-04-HTML
 
 [![Mr Coxall's Super Linter](https://github.com/Brayden-Blank/ICS2O-Unit-3-04-HTML/actions/workflows/main.yml/badge.svg)](https://github.com/Brayden-Blank/ICS2O-Unit-3-04-HTML/actions/workflows/main.yml)
 
